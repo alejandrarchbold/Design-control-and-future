@@ -1,4 +1,8 @@
+#En este programa hacemos estados financieros básicos basados en las NIIF como el estado de resultados, estado de flujos de efectivo y balance general. 
+#Que posteriormente serán alimentados de datos más detallados de la empresa como inventarios, compras de materias primas, ventas, etc.
+
 class Estadoresultados:
+    #Esta clase crea el estados de resultados con sus respectivas cuentas
     def __init__(self):
         self.ventas = float(input('Ingresos por actividades ordinarias: '))
         self.costodeventas = float(input('Costo de ventas: '))
@@ -16,9 +20,13 @@ class Estadoresultados:
         return 'Ingresos por actividades ordinarias: {0} \nCosto de ventas: {1} \nUtilidad bruta: {2} \nGastos operacionales: {3} \nUtilidad operacional: {4} \nOtros ingresos: {5} \nOtros egresos: {6} \nUtilidad antes de impuestos: {7} \nProvisión imporrenta: {8} \nUtilidad neta: {9} \n'.format(self.ventas,self.costodeventas,self.utilidadbruta,self.gastosoperacionales,self.utilidadoperacional,self.otrosingresos,self.otrosegresos,self.utilidadantesdeimpuestos,self.provisicionimporrenta,self.utilidadneta)
 
 class Estadoflujosdeefectivo:
+    #Esta clase crea el estado de flujos de efectivo
     def __init__(self):
+        #Los ingresos y los egresos son las dos grandes categorias de este estado
+        #Con el fin de poder organizar cada cuenta según la categoria, creamos diccionarios que contienen el nombre de la cuenta y el valor
         self.ingresos = {}
         self.egresos = {}
+        #Pedimos el nombre de cada entrada o salida de dinero en efectivo y la anexamos al respectivo diccionario
         while True:
             i = input('Nombre de la cuentas de ingreso: ')
             if i == 'done':
@@ -29,6 +37,8 @@ class Estadoflujosdeefectivo:
             if i == 'done':
                 break
             self.egresos[i] = float(input('Valor: '))
+        
+        #Creamos dos atributos que contengan el valor numérico de los ingresos y egresos
         self.ing = 0
         self.egr = 0
         for c in self.ingresos.values():
@@ -41,10 +51,13 @@ class Estadoflujosdeefectivo:
         return 'Ingresos en efectivo: {0} \nEgresos en efectivo: {1} \nEfectivo y equivales al efectivo: {2} \n'.format(self.ing,self.egr,self.efectivoyequivalentes)
 
 class Balancegeneral:
+    #En esta clase creamos el balance general
     def __init__(self):
+        #Creamos las categorias pricipales que son activo, pasivo y patrimonio.
         self.activo = {}
         self.pasivo = {}
         self.patrimonio = {}
+        #Pedimos el nombre de cada cuenta para cada categoria, y la anexamos al diccionario
         while True:
             i = input('Nombre de la cuenta activo: ')
             if i == 'done':
@@ -60,7 +73,8 @@ class Balancegeneral:
             if i == 'done':
                 break
             self.patrimonio[i] = float(input('Valor: '))
-
+        
+        #Sacamos el valor numérico de cada categoria
         self.totalactivo = 0
         for n in self.activo.values():
             self.totalactivo += n
@@ -70,6 +84,8 @@ class Balancegeneral:
         self.totalpatrimonio = 0
         for n in self.patrimonio.values():
             self.totalpatrimonio += n
+        #El activo debería ser igual al pasivo más el patrimonio, si no los es, se dice que hay un descuadre
+        #Calculamos el posible descuadre
         self.descuadre = self.totalactivo - self.totalpasivo-self.totalpatrimonio
 
     def __str__(self):
@@ -94,6 +110,7 @@ class Balancegeneral:
 
 
 class Estadosporano:
+    #Creamos una clase que almacena los 3 estados financieros por cada año
     def __init__(self,ano,resultados,flujos,balance):
         self.ano = ano
         self.estados = {}
@@ -104,6 +121,7 @@ class Estadosporano:
         return '\nAño: {0} \n'.format(self.ano) +'\n'+ 'Estado de resultados: \n' + str(self.estados['Estado de resultados']) + '\nEstado de flujos de efectivo: \n' + str(self.estados['Estado de flujos de efectivo']) + '\nBalance general: \n' + str(self.estados['Balance general'])
 
 class Historiaestados:
+    #Creamos una clase que almacena los estados financieros de varios años
     def __init__(self):
         self.anos = {}
     def anadirestados(self,estado):
