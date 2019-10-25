@@ -2,18 +2,16 @@ print("Importando paquetes...")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
-from sklearn.linear_model import LinearRegression
-print("Listo!")
+#import seaborn as sns
+#from sklearn.linear_model import LinearRegression
 
 print("Leyendo .csv")
-df_autos = pd.read_csv("C:\\Users\\juank\\Desktop\\Python\\Proyecto_Alejandra\\autos_csv.csv")
+df_autos = pd.read_csv("C:\\Users\\acamp\\Desktop\\Design-control-and-future\\Analisis_estadistico_autos\\autos_csv.csv", sep=';')
 print("Datos Listos")
 
 df_autos.head()
 
 # Nombres de las columnas: df_autos.columns
-
 
 #Resumen de estadisticas de la base de datos
 df_autos.describe()
@@ -92,6 +90,9 @@ plt.scatter(df_autos["city-mpg"],price) # **
 
 plt.scatter(df_autos["highway-mpg"],price) #**
 
+# Las variables que influyen con respecto al precio son: curb-weight, horsepower,
+# city-mpg y highway-mpg
+
 #==============================================================================
 #Regresiones lineales
 """
@@ -105,6 +106,8 @@ plt.scatter(X1,Y1)
 plt.plot(X1,Y1_pred, color='red')
 plt.show()
 """
+# Sin embargo, no se pudo trazar la linea de regresión en la nube de puntos debido
+# a la cantidad de NA que hay en la base de datos
 
 #==============================================================================
 # Agrupamiento por paises
@@ -135,8 +138,6 @@ for m in marcas:
         if m in dic_paises[p]:
            miPais = p
            colorDeMarca.append(dic_pais_col[miPais])
-
-
 
 
 plt.scatter(x=price, y=df_autos["horsepower"], s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
