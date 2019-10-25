@@ -54,8 +54,32 @@ for k in dfs.keys():
     medias.append(m)
     
 y_pos = np.arange(len(marcas))
-plt.figure(figsize=(15,3))
+#plt.figure(figsize=(15,3))
 plt.bar(y_pos, medias, align='edge', width=0.5)
+
+plt.xticks(y_pos, marcas, rotation="vertical")
+plt.show()
+
+# Media de horsepower de cada marca
+horsepowers = []
+for ke in dfs.keys():
+    df = dfs[ke]
+    me = np.mean(df['horsepower'])
+    horsepowers.append(me)
+
+plt.bar(y_pos, horsepowers, align='edge', width=0.5)
+
+plt.xticks(y_pos, marcas, rotation="vertical")
+plt.show()
+
+# Media de highway-mpg de cada marca
+highway_mpg = []
+for ki in dfs.keys():
+    df = dfs[ki]
+    mi = np.mean(df['highway-mpg'])
+    highway_mpg.append(mi)
+
+plt.bar(y_pos, highway_mpg, align='edge', width=0.5)
 
 plt.xticks(y_pos, marcas, rotation="vertical")
 plt.show()
@@ -139,8 +163,16 @@ for m in marcas:
            miPais = p
            colorDeMarca.append(dic_pais_col[miPais])
 
-
-plt.scatter(x=price, y=df_autos["horsepower"], s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
+Paises = []
+for c in colorDeMarca:
+    for py in dic_pais_col.keys():
+        if c in dic_pais_col[py]:
+            Paises.append(py)
+           
+plt.scatter(x=medias, y=horsepowers, s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
 
 #Correlacion x = horsepower, y = highway-mpg
-plt.scatter(x=df_autos["horsepower"], y=df_autos["highway-mpg"], s = np.array(price)**(0.5), c = colorDeMarca, alpha=0.8)
+
+plt.scatter(x=horsepowers, y=highway_mpg, s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
+
+
