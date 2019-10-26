@@ -42,7 +42,8 @@ for i in range(len(marcas)):
 #Histograma de todos los precios
 price = df_autos["price"]
 plt.hist(price, range=(min(price),max(price)), color=(0.2,0.4,0.6,0.6))
-
+plt.title("Histograma de los precios en el sector automotriz")
+plt.show()
 
 #==============================================================================
 # Diagrama de barras
@@ -58,6 +59,7 @@ y_pos = np.arange(len(marcas))
 plt.bar(y_pos, medias, align='edge', width=0.5)
 
 plt.xticks(y_pos, marcas, rotation="vertical")
+plt.title("Media de los precios por marca de carro")
 plt.show()
 
 # Media de horsepower de cada marca
@@ -70,6 +72,7 @@ for ke in dfs.keys():
 plt.bar(y_pos, horsepowers, align='edge', width=0.5)
 
 plt.xticks(y_pos, marcas, rotation="vertical")
+plt.title("Media de los horsepowers por marca de carro")
 plt.show()
 
 # Media de highway-mpg de cada marca
@@ -82,6 +85,19 @@ for ki in dfs.keys():
 plt.bar(y_pos, highway_mpg, align='edge', width=0.5)
 
 plt.xticks(y_pos, marcas, rotation="vertical")
+plt.title("Media de los highway-mpg por marca de carro")
+plt.show()
+
+city_mpg = []
+for ka in dfs.keys():
+    df = dfs[ka]
+    ma = np.mean(df['city-mpg'])
+    city_mpg.append(ma)
+
+plt.bar(y_pos, city_mpg, align='edge', width=0.5)
+
+plt.xticks(y_pos, marcas, rotation="vertical")
+plt.title("Media de los city-mpg por marca de carro")
 plt.show()
 #==============================================================================
 #Variables importantes a analizar
@@ -169,10 +185,14 @@ for c in colorDeMarca:
         if c in dic_pais_col[py]:
             Paises.append(py)
            
-plt.scatter(x=medias, y=horsepowers, s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
 
 #Correlacion x = horsepower, y = highway-mpg
 
 plt.scatter(x=horsepowers, y=highway_mpg, s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
+plt.title("Relación entre horsepowers y highway_mpg")
+plt.show()
 
 
+plt.scatter(x=horsepowers, y=city_mpg, s = np.array(medias)**(0.5), c = colorDeMarca, alpha=0.8)
+plt.title("Relación entre horsepowers y city_mpg")
+plt.show()
