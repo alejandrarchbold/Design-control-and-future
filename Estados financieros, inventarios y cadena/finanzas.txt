@@ -1,0 +1,113 @@
+
+Anio: 2018
+
+Estado de resultados
+Ingresos por actividades ordinarias: 100.0
+Costo de ventas: 50.0
+Utilidad bruta: 50.0
+Gastos operacionales: 25.0
+Utilidad operacional: 25.0
+Otros ingresos: 0.0
+Otros egresos: 0.0
+Utilidad antes de impuestos: 25.0
+Provision imporrenta: 0.0
+Utilidad neta: 25.0
+
+Estado de flujos de efectivo
+Ingresos en efectivo: 125.0
+Egresos en efectivo: 50.0
+Efectivo y equivales al efectivo: 75.0
+
+Balance general
+inventario: 123.0
+efectivo y equivalente: 213.0
+Total activo: 336.0
+deudas: 213.0
+Total pasivo: 213.0
+capital: 123.0
+Total patrimonio: 123.0
+Descuadre: 0.0
+Anio: 2019
+
+Estado de resultados
+Ingresos por actividades ordinarias: 1000.0
+Costo de ventas: 500.0
+Utilidad bruta: 500.0
+Gastos operacionales: 250.0
+Utilidad operacional: 250.0
+Otros ingresos: 213.0
+Otros egresos: 213.0
+Utilidad antes de impuestos: 250.0
+Provision imporrenta: 5000.0
+Utilidad neta: -4750.0
+
+Estado de flujos de efectivo
+Ingresos en efectivo: 213.0
+Egresos en efectivo: 235.0
+Efectivo y equivales al efectivo: -22.0
+
+Balance general
+efec: 2130.0
+Total activo: 2130.0
+deudas 2: 8213.0
+Total pasivo: 8213.0
+capital: 2138.0
+Total patrimonio: 2138.0
+Descuadre: -8221.0
+
+Anio: 2020
+
+Estado de resultados
+Ingresos por actividades ordinarias: 8888.0
+Costo de ventas: 500.0
+Utilidad bruta: 500.0
+Gastos operacionales: 250.0
+Utilidad operacional: 250.0
+Otros ingresos: 213.0
+Otros egresos: 213.0
+Utilidad antes de impuestos: 250.0
+Provision imporrenta: 5000.0
+Utilidad neta: -4750.0
+
+Estado de flujos de efectivo
+Ingresos en efectivo: 213.0
+Egresos en efectivo: 235.0
+Efectivo y equivales al efectivo: -22.0
+
+Balance general
+efec: 2130.0
+Total activo: 2130.0
+deudas 2: 8213.0
+Total pasivo: 8213.0
+capital: 2138.0
+Total patrimonio: 2138.0
+Descuadre: -8221.0
+
+Anio: 2015
+
+Estado de resultados
+Ingresos por actividades ordinarias: 500.0 
+Costo de ventas: 234.0 
+Utilidad bruta: 266.0 
+Gastos operacionales: 23.0 
+Utilidad operacional: 243.0 
+Otros ingresos: 213.0 
+Otros egresos: 321.0 
+Utilidad antes de impuestos: 135.0 
+Provision imporrenta: 0.0 
+Utilidad neta: 135.0 
+
+Estado de flujos de efectivo
+Ingresos en efectivo: 23498.0 
+Egresos en efectivo: 21390.0 
+Efectivo y equivales al efectivo: 2108.0 
+
+Balance general
+inventaario: 1298.0
+Total activo: 1298.0
+deudas: 21398.0
+Total pasivo: 21398.0
+capital: 23498.0
+Total patrimonio: 23498.0 
+Descuadre: -43598.0
+
