@@ -179,7 +179,8 @@ if Q1=="si":
             newA[i][j]=(nombres[i].Lriesgos[j].getProbabilidad())*(nombres[i].Lriesgos[j].getImpacto())
 
     # se crea el mapa de calor con la libreria seaborn y se imprime con matplotlib
-    heat_map=sb.heatmap(newA,cmap="YlOrBr")
+    y=["M.Primas","Produccion","Transporte","Almacenamiento","Ventas"]
+    heat_map=sb.heatmap(newA,cmap="YlOrBr",yticklabels=y)
     plt.ylabel('Etapas en la cadena de produccion')
     plt.xlabel("Riesgos asociados")
     plt.show()
@@ -195,7 +196,8 @@ else:
             newA[i][j]=(nombres[i].Lriesgos[j].getProbabilidad())*(nombres[i].Lriesgos[j].getImpacto())
 
     # se crea el mapa de calor con la libreria seaborn y se imprime con matplotlib
-    heat_map=sb.heatmap(newA,cmap="YlOrBr")
+    y=["M.Primas","Produccion","Transporte","Almacenamiento","Ventas"]
+    heat_map=sb.heatmap(newA,cmap="YlOrBr",yticklabels=y)
     plt.ylabel('Etapas en la cadena de produccion')
     plt.xlabel("Riesgos asociados")
     plt.show()
