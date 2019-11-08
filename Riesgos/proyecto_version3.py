@@ -97,9 +97,9 @@ import matplotlib.pyplot as plt
 ## se creo la clase riesgo y los objetos MT. Tambien se crea la clase etapa que
 #esta compuesta de varios objetos de tipo riesgo, para este caso, la clase
 # etapa es la de materias primas
-MT1=Riesgo(0.02,3,"retraso proveedores              ")
-MT2=Riesgo(0.4,2,"insumos de mala calidad           ")
-MT3=Riesgo(0.65,2,"aumento precio materias primas   ")
+MT1=Riesgo(0.2,3,"retraso proveedores              ")
+MT2=Riesgo(4.0,2,"insumos de mala calidad           ")
+MT3=Riesgo(6.5,2,"aumento precio materias primas   ")
 #MT4=Riesgo(0.23,3,"adquisicion de nuevos materiales ")
 materias_primas=Etapa()
 list_m=[MT1,MT2,MT3]
@@ -107,20 +107,20 @@ for j in range(0,len(list_m)):
     materias_primas.addriesgo(list_m[j])
 
 ## se crean los riesgos de la etapa de produccion
-PR1=Riesgo(0.21,2,"producto defectuoso             ")
-PR2=Riesgo(0.07,2,"daño maquinaria                 ")
+PR1=Riesgo(2.1,2,"producto defectuoso             ")
+PR2=Riesgo(0.7,2,"daño maquinaria                 ")
 #PR3=Riesgo(0.02,3,"accidente laboral               ")
 #PR4=Riesgo(0.1,1,"accidentes provocados            ")
-PR3=Riesgo(0.002,1,"desastres naturales              ")
+PR3=Riesgo(0.02,3,"desastres naturales              ")
 produccion=Etapa()
 list_p=[PR1,PR2,PR3]
 for j in range(0,len(list_p)):
     produccion.addriesgo(list_p[j])
 
 ## se crean los riesgos de la etapa de transporte y logística
-TL1=Riesgo(0.15,2,"cambio en politicas             ")
-TL2=Riesgo(0.09,3,"accidente de transito           ")
-TL3=Riesgo(0.002,2,"desastre natural                  ")
+TL1=Riesgo(1.5,2,"cambio en politicas             ")
+TL2=Riesgo(0.9,3,"accidente de transito           ")
+TL3=Riesgo(0.02,3,"desastre natural                  ")
 #TL4=Riesgo(0.1,1,"ataques ciberneticos             ")
 #TL5=Riesgo(0.1,2,"robos de productos               ")
 transporte=Etapa()
@@ -129,19 +129,19 @@ for j in range(0,len(list_t)):
     transporte.addriesgo(list_t[j])
 
 ## se crean los riesgos de la etapa de almacenamiento
-AB1=Riesgo(0.18,3,"daño productos por almacenamiento")
+AB1=Riesgo(1.8,3,"daño productos por almacenamiento")
 #AB2=Riesgo(0.05,2,"deterioro de productos           ")
-AB2=Riesgo(0.08,1,"accidente en bodega              ")
-AB3=Riesgo(0.1,2,"robos                             ")
+AB2=Riesgo(0.8,1,"accidente en bodega              ")
+AB3=Riesgo(1.0,2,"robos                             ")
 almacenamiento=Etapa()
 list_a=[AB1,AB2,AB3]
 for j in range(0,len(list_a)):
     almacenamiento.addriesgo(list_a[j])
 
 ## se crean los riesgos de la etapa de ventas
-VE1=Riesgo(0.1,2,"reduccion en ventas               ")
-VE2=Riesgo(0.15,2,"cambio politicas economicas      ")
-VE3=Riesgo(0.3,1,"fluctuacion en tasas de cambio    ")
+VE1=Riesgo(1.0,2,"reduccion en ventas               ")
+VE2=Riesgo(1.5,2,"cambio politicas economicas      ")
+VE3=Riesgo(3.0,1,"fluctuacion en tasas de cambio    ")
 ventas=Etapa()
 lista_v=[VE1,VE2,VE3]
 for j in range(0,len(lista_v)):
