@@ -56,9 +56,11 @@ class nuevoEstadosporano:
         self.efectivoyequivalentes = self.ing - self.egr
 
         print('Balance general')
+        #Se crean diccionarios para el pasivo, el activo y el patrimonio
         self.activo = {}
         self.pasivo = {}
         self.patrimonio = {}
+        #Se pregunta por el nombre de cada item y su valor y se agrega al respectivo diccionario
         while True:
             i = input('Nombre de la cuenta activo: ')
             if i == 'done':
@@ -75,17 +77,21 @@ class nuevoEstadosporano:
                 break
             self.patrimonio[i] = float(input('Valor: '))
         self.totalactivo = 0
+        #Se suman los valores de las cuentas en el diccionario activo para calcular el valor total del activo
         for n in self.activo.values():
             self.totalactivo += n
         self.totalpasivo = 0
+        #Se suman los valores de las cuentas en el diccionario pasivo para calcular el valor total del pasivo      
         for n in self.pasivo.values():
             self.totalpasivo += n
         self.totalpatrimonio = 0
+        #Se suman los valores de las cuentas en el diccionario patrimonio para calcular el valor total del patrimonio       
         for n in self.patrimonio.values():
             self.totalpatrimonio += n
         self.descuadre = self.totalactivo - self.totalpasivo-self.totalpatrimonio
 
     def __str__(self):
+        #Se retornan los items y valores anteriores en forma de string sumándolos a una variable s
         s = 'Anio: {0}\n'.format(self.ano)
         s+='\n'
         s+= 'Estado de resultados\n'
@@ -115,7 +121,7 @@ class nuevoEstadosporano:
         return s
 
 class viejoEstadosporano:
-    #estad clase abre el archivo finanzas.txt y recupera los valores de cada año con sus respectivos estados,
+    #esta clase abre el archivo finanzas.txt y recupera los valores de cada año con sus respectivos estados,
     #y los guarda todos en un diccionario con el año como llave y los items como valores
     def __init__(self):
         self.miarchivo = open('finanzas.txt', 'r')
@@ -129,6 +135,7 @@ class viejoEstadosporano:
         self.fechas = []
         self.anios = {}
         for l in self.x:
+            #Se cuenta el número de años guardados en el archivo txt
             l = l.rstrip()
             l = l.split(': ')
             for i in l:
@@ -136,6 +143,7 @@ class viejoEstadosporano:
                     nanios += 1
 
         for l in self.x:
+            #Se toma el valor de los años que hay en el archivo, ejemplo: 2019, 2018. Y se agregan a una lista
             l = l.rstrip()
             l = l.split(': ')
             for i in l:
@@ -144,6 +152,7 @@ class viejoEstadosporano:
 
 
         c = 0
+        #Por cada año se toma la porción del texto correspondiente a ese año y se extraen los valores y se agregan a un diccionario con el valor del año como llave 
         for j in range(nanios):
             for i in self.x:
                 i = i.rstrip()
@@ -158,6 +167,7 @@ class viejoEstadosporano:
             self.s=''
         self.miarchivo.close()
     def __str__(self):
+        #Se retornan todos los valores del diccionario en forma de string
         s = ''
         for q in self.fechas:
             s += self.anios[q]
@@ -167,6 +177,7 @@ class viejoEstadosporano:
 class Historiaestados:
     #Esta clase permite añadir varios años y guardarlos en un objeto.
     def __init__(self):
+        #Se crea el diccionario self.anos donde posteriormente se almacenará la información según el año
         self.anos = {}
         self.viejo = None
     def anadirviejosestados(self,clase):
@@ -179,6 +190,7 @@ class Historiaestados:
         #Se añaden el estado que se creó nuevo
         self.anos[estado.ano] = estado
     def __str__(self):
+        #se retorna los valores de todos los años con sus respectivos datos en forma de string
         c = 0
         s = ''
         for i in range(len(self.anos.keys())):
