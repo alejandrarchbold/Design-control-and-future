@@ -1,3 +1,9 @@
+#El siguiente código permite llevar la contabilidad de una empresa. 
+#Los 3 estados que se tomarán son el estado de resultados, el estado de flujos de efectivo y el balance general.
+#Para esto, se utilizaran 3 clases: una para crear nuevos estados por un año, otra para tomar los estados anteriores 
+# y la última para guardar los estados por año y combinar los estados de los años anteriores con los nuevos
+
+
 class nuevoEstadosporano:
     #Se crea una clase que permite crear objetos que contengan los 3 estados financieros básicos, preguntandole
     # al usuario el valor de cada elemento de los estados
@@ -5,8 +11,10 @@ class nuevoEstadosporano:
         self.ano = input('Año: ')
 
         print('Estado de resultados')
+        #A través del input se le pide al usuario ingresar el valor de cada cuenta
         self.ventas = float(input('Ingresos por actividades ordinarias: '))
         self.costodeventas = float(input('Costo de ventas: '))
+        #Se hace el cálculo de las utilidades sin tener que pedirselo al usuario
         self.utilidadbruta = self.ventas - self.costodeventas
         self.gastosoperacionales = float(input('Gastos operacionales: '))
         self.utilidadoperacional = self.utilidadbruta - self.gastosoperacionales
@@ -23,21 +31,28 @@ class nuevoEstadosporano:
         self.ingresos = {}
         self.egresos = {}
         while True:
+            # Se le pide al usuario el nombre de cada cuenta de ingresos, el nombre es asignado como la llave del diccionario ingresos con su respectivo valor.
             i = input('Nombre de la cuentas de ingreso: ')
             if i == 'done':
+                #cuendo el usuario termina de agregar las cuentas de ingresos, escribe done y pasa a egresos.
                 break
             self.ingresos[i] = float(input('Valor: '))
         while True:
+            # Se le pide al usuario el nombre de cada cuenta de egresos, el nombre es asignado como la llave del diccionario de egresos con su respectivo valor.
             i = input('Nombre de la cuentas de egresos: ')
             if i == 'done':
+                #cuendo el usuario termina de agregar las cuentas de egresos, escribe done y pasa a balance general.
                 break
             self.egresos[i] = float(input('Valor: '))
         self.ing = 0
         self.egr = 0
         for c in self.ingresos.values():
+            #se suman todos los valores del diccionario ingresos para saber el valor total de los ingresos
             self.ing += c
         for n in self.egresos.values():
+            #se suman todos los valores del diccionario egresos para saber el valor total de los egresos
             self.egr += n
+        #Se calcula el efectivo con el que cuenta la compañia para el período
         self.efectivoyequivalentes = self.ing - self.egr
 
         print('Balance general')
