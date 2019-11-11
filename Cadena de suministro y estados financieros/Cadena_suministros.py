@@ -75,7 +75,7 @@ y0 = 20 #posicion Y de los botones
 A = 80 #Espacio ente boton y flecha
 c = 50 #Contador inicial
 
-load_image = Image.open("C:/Users/juank/Desktop/Design-control-and-future/flecha.png") #Cargando la imagen flecha.png para representar el proceso
+load_image = Image.open("C:/Users/acamp/Desktop/Design-control-and-future/flecha.png") #Cargando la imagen flecha.png para representar el proceso
 load_image = load_image.resize((Wf,40)) #Configurar el tamaño de la imagen
 image = ImageTk.PhotoImage(load_image) #Pasarlo al Tk la imagen para cargarlo.
 
