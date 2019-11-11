@@ -77,17 +77,16 @@ class Etapa:
             s = s + str(self.Lriesgos[i]) + "\n"
         return s
 
-def printing():
-
-    listas=["materias primas","produccion","transporte","almacenamiento","ventas"]
-    nombres=[materias_primas,produccion,transporte,almacenamiento,ventas]
-    for k in range(0,len(listas)):
-        print("Riesgo en {0} de {1:.4f}".format(listas[k],nombres[k].GlobalRiesgo()))
 
 def printt():
     nombres=[materias_primas,produccion,transporte,almacenamiento,ventas]
     for i in nombres:
         print(i)
+
+
+# para importar las siguientes librerias es importante instalarlas primero desde
+# el terminal usando el comando pip3  asi (ejemplo):
+        # sudo pip3 install seaborn
 
 import numpy as np
 import seaborn as sb
@@ -97,10 +96,9 @@ import matplotlib.pyplot as plt
 ## se creo la clase riesgo y los objetos MT. Tambien se crea la clase etapa que
 #esta compuesta de varios objetos de tipo riesgo, para este caso, la clase
 # etapa es la de materias primas
-MT1=Riesgo(0.2,3,"retraso proveedores              ")
-MT2=Riesgo(4.0,2,"insumos de mala calidad           ")
-MT3=Riesgo(6.5,2,"aumento precio materias primas   ")
-#MT4=Riesgo(0.23,3,"adquisicion de nuevos materiales ")
+MT1=Riesgo(1.2,3,"retraso proveedores              ")
+MT2=Riesgo(2.0,3,"insumos de mala calidad           ")
+MT3=Riesgo(5.5,1,"aumento precio materias primas   ")
 materias_primas=Etapa()
 list_m=[MT1,MT2,MT3]
 for j in range(0,len(list_m)):
@@ -108,9 +106,7 @@ for j in range(0,len(list_m)):
 
 ## se crean los riesgos de la etapa de produccion
 PR1=Riesgo(2.1,2,"producto defectuoso             ")
-PR2=Riesgo(0.7,2,"daño maquinaria                 ")
-#PR3=Riesgo(0.02,3,"accidente laboral               ")
-#PR4=Riesgo(0.1,1,"accidentes provocados            ")
+PR2=Riesgo(1.7,2,"daño maquinaria                 ")
 PR3=Riesgo(0.02,3,"desastres naturales              ")
 produccion=Etapa()
 list_p=[PR1,PR2,PR3]
@@ -118,20 +114,18 @@ for j in range(0,len(list_p)):
     produccion.addriesgo(list_p[j])
 
 ## se crean los riesgos de la etapa de transporte y logística
-TL1=Riesgo(1.5,2,"cambio en politicas             ")
-TL2=Riesgo(0.9,3,"accidente de transito           ")
-TL3=Riesgo(0.02,3,"desastre natural                  ")
-#TL4=Riesgo(0.1,1,"ataques ciberneticos             ")
-#TL5=Riesgo(0.1,2,"robos de productos               ")
+TL1=Riesgo(2.5,2,"cambio en politicas             ")
+TL2=Riesgo(0.9,2,"accidente de transito           ")
+TL3=Riesgo(0.07,3,"desastre natural                  ")
+
 transporte=Etapa()
 list_t=[TL1,TL2,TL3]
 for j in range(0,len(list_t)):
     transporte.addriesgo(list_t[j])
 
 ## se crean los riesgos de la etapa de almacenamiento
-AB1=Riesgo(1.8,3,"daño productos por almacenamiento")
-#AB2=Riesgo(0.05,2,"deterioro de productos           ")
-AB2=Riesgo(0.8,1,"accidente en bodega              ")
+AB1=Riesgo(2.8,1,"daño productos por almacenamiento")
+AB2=Riesgo(0.8,2,"accidente en bodega              ")
 AB3=Riesgo(1.0,2,"robos                             ")
 almacenamiento=Etapa()
 list_a=[AB1,AB2,AB3]
@@ -139,9 +133,9 @@ for j in range(0,len(list_a)):
     almacenamiento.addriesgo(list_a[j])
 
 ## se crean los riesgos de la etapa de ventas
-VE1=Riesgo(1.0,2,"reduccion en ventas               ")
+VE1=Riesgo(3.1,2,"reduccion en ventas               ")
 VE2=Riesgo(1.5,2,"cambio politicas economicas      ")
-VE3=Riesgo(3.0,1,"fluctuacion en tasas de cambio    ")
+VE3=Riesgo(3.0,2,"fluctuacion en tasas de cambio    ")
 ventas=Etapa()
 lista_v=[VE1,VE2,VE3]
 for j in range(0,len(lista_v)):
@@ -184,7 +178,7 @@ if Q1=="si":
     plt.ylabel('Etapas en la cadena de produccion')
     plt.xlabel("Riesgos asociados")
     plt.show()
-    printing()
+    
 else:
     ##imprimir grafico de calor con valores de riesgo
     newA=np.zeros(shape=(5,3))
@@ -201,4 +195,4 @@ else:
     plt.ylabel('Etapas en la cadena de produccion')
     plt.xlabel("Riesgos asociados")
     plt.show()
-    printing()
+    
