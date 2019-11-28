@@ -27,6 +27,7 @@ class nuevoEstadosporano:
 
         #en el estado de flujos de efectivo y el balance general pueden haber más cuentas de las esperadas, por lo que se le pregunta
         #el nombre de cada cuenta y el valor de la misma al usuario
+        print('A continuación ingrese el nombre de la cuenta y su valor. Una vez haya terminado, escriba \"done\"'
         print('Estado de flujos de efectivo')
         self.ingresos = {}
         self.egresos = {}
@@ -211,3 +212,4 @@ miarchivo = open('finanzas.txt', 'w')
 #Se reescribe el archivo actualizandolo con los nuevos estados 
 miarchivo.write(str(todo))
 miarchivo.close()
+print("Pueden ver los estados por año en el archivo finanzas.txt"
